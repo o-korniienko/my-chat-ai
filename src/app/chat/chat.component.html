@@ -1,0 +1,40 @@
+<div>
+  <div [hidden]="hideChat" *ngFor="let chat of chatElements" class="chat-section">
+    <div class="question-div">
+      <h2 class="question-item">{{chat.question}}</h2>
+    </div>
+    <div *ngFor="let responseItem of chat.response">
+      <p nz-typography
+         [hidden]="responseItem.isCode"
+         class="response-item" nz-typography>{{responseItem.text}}</p>
+      <pre [hidden]="!responseItem.isCode">
+        <code
+          [languages]="[responseItem.language]"
+          [lineNumbers]="true"
+          [highlight]="responseItem.text"></code>
+      </pre>
+      <nz-divider></nz-divider>
+    </div>
+  </div>
+  <nz-spin [nzSpinning]="isLoad" [nzSize]="'large'">
+    <div [ngStyle]="{'position':'relative', 'margin-top': top}">
+      <nz-affix [nzOffsetBottom]="bottom">
+        <form nz-form [formGroup]="formGroup" (ngSubmit)="submitForm()" class="input-element">
+          <nz-input-group nzSearch nzSize="large" [nzAddOnAfter]="suffixButton">
+            <input type="text" nz-input formControlName="question" placeholder="ask me"
+                   (input)="valueChange($event)"
+                   [(ngModel)]="question"/>
+
+          </nz-input-group>
+
+          <ng-template #suffixButton>
+            <button [disabled]="isLoad" nz-button nzSize="large" class="send-btn"><span nz-icon nzType="send"
+                                                                                        nzTheme="outline"></span>
+            </button>
+          </ng-template>
+        </form>
+      </nz-affix>
+    </div>
+  </nz-spin>
+
+</div>

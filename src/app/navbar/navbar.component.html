@@ -1,0 +1,24 @@
+<nz-page-header class="navbar">
+  <nz-page-header-title>
+    <a routerLink="/play">
+      <img [title]="title" class="images" [src]="logoUrl" routerLink="/"/>
+    </a>
+  </nz-page-header-title>
+
+  <nz-page-header-tags class="navigate-menu">
+    <nz-space>
+      <a nz-button nzType="link"
+         *ngFor="let btn of buttons"
+         (mouseover)="hoverIndex=btn.id"
+         (mouseleave)="hoverIndex=-1"
+         [ngStyle]="hoverIndex === btn.id ? getBtnStyle('#6c5eca') : getBtnStyle(btn.color)"
+         routerLink={{btn.link}}
+      >{{btn.name}}</a>
+
+    </nz-space>
+  </nz-page-header-tags>
+</nz-page-header>
+
+
+
+

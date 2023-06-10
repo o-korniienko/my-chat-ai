@@ -1,0 +1,42 @@
+.chat-section{
+  position:relative;
+  width:60%;
+  min-height:100%;
+  margin-top:1%;
+  left:20%;
+  background-color:#e7ecea;
+}
+
+.question-div{
+  border-style: groove;
+  background-color:#041d11;
+}
+
+.question-item{
+  position:relative;
+  width:96%;
+  left:2%;
+  color:white;
+
+}
+
+.response-item{
+  position:relative;
+  width:96%;
+  left:2%;
+  margin-top:1%;
+  white-space: pre-line;
+}
+
+.input-element{
+  position:relative;
+  width:60%;
+  left:20%;
+}
+
+.send-btn{
+  color:white;
+  background-color:black;
+  border-bottom-right-radius:14px;
+  border-top-right-radius:14px;
+}
