@@ -2,8 +2,8 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable, of } from 'rxjs';
 import { catchError, map, tap } from 'rxjs/operators';
-import {GptResponse} from './gpt-response'
-import {GptRequest} from './gpt-request'
+import {GptResponse} from '../model/gpt-response'
+import {GptRequest} from '../model/gpt-request'
 
 @Injectable({
   providedIn: 'root'
@@ -15,7 +15,7 @@ export class ChatService {
   private url = "https://api.openai.com/v1/chat/completions"
   httpOptions = {
     headers: new HttpHeaders({ 'Content-Type': 'application/json',
-                                "Authorization": "Bearer my_token"})
+                                "Authorization": "Bearer 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"})
   };
 
   askChatGpt(question: string): Observable<any> {

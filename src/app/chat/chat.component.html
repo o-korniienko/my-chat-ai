@@ -13,10 +13,12 @@
           [lineNumbers]="true"
           [highlight]="responseItem.text"></code>
       </pre>
-      <nz-divider></nz-divider>
+
     </div>
+    <nz-divider></nz-divider>
   </div>
-  <nz-spin [nzSpinning]="isLoad" [nzSize]="'large'">
+
+  <nz-spin [nzSpinning]="isLoad" [nzSize]="'large'" nzTip="I am thinking...">
     <div [ngStyle]="{'position':'relative', 'margin-top': top}">
       <nz-affix [nzOffsetBottom]="bottom">
         <form nz-form [formGroup]="formGroup" (ngSubmit)="submitForm()" class="input-element">

@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import {Btn} from '../btn'
+import {Btn} from '../model/btn'
 import {BUTTONS} from '../buttons'
 
 @Component({
@@ -14,6 +14,7 @@ export class NavbarComponent {
       private route: ActivatedRoute,
     ) {}
 
+  top = "0%"
   title = "My AI Chat"
   hoverIndex = -1
   path  = window.location.pathname
