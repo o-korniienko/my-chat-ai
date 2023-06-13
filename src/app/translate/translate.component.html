@@ -1,0 +1,20 @@
+<app-navbar></app-navbar>
+<div class="translate-section">
+  <nz-spin [nzSpinning]="isLoad" [nzSize]="'large'" nzTip="Translating ...">
+  <form nz-form [formGroup]="formGroup" (ngSubmit)="submitForm()" class="input-form">
+    <nz-space class="translate-space" [nzAlign]='nzAlign'>
+      <textarea class="none-resize input-component" rows="14" formControlName="text" nz-input></textarea>
+      <div class="translated-section">
+        <select required class="language-select" formControlName="languageOption" [(ngModel)]="selectedLanguage">
+          <option *ngFor="let language of languages" [value]="language">{{language}}</option>
+        </select>
+        <textarea formControlName="translated" class="none-resize output-component" readOnly={true} rows="12"
+                  nz-input [(ngModel)]="inputValue"></textarea>
+      </div>
+    </nz-space>
+    <br>
+    <button nz-button nzSize="large" nzType="primary" class="send-btn">Translate
+    </button>
+  </form>
+  </nz-spin>
+</div>

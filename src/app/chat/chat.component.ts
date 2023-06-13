@@ -1,10 +1,10 @@
 import { Component } from '@angular/core';
-import {ChatElement} from '../model/chat-element'
-import {ResponseItem} from '../model/response-item'
+import {ChatElement} from '../model/chat-element';
+import {ResponseItem} from '../model/response-item';
 import { UntypedFormBuilder, UntypedFormControl, UntypedFormGroup, ValidationErrors, Validators } from '@angular/forms';
 import { Observable, Observer } from 'rxjs';
-import {ChatService} from '../service/chat.service'
-import {GptResponse} from '../model/gpt-response'
+import {AIService} from '../service/ai.service';
+import {GptResponse} from '../model/gpt-response';
 import { HighlightLoader } from 'ngx-highlightjs';
 
 @Component({
@@ -14,7 +14,9 @@ import { HighlightLoader } from 'ngx-highlightjs';
 })
 export class ChatComponent {
 
-  constructor(private fb: UntypedFormBuilder, private chatService: ChatService, private hljsLoader: HighlightLoader) {}
+  constructor(private fb: UntypedFormBuilder,
+              private aiService: AIService,
+              private hljsLoader: HighlightLoader) {}
 
   isLoad = false
   chatElements: ChatElement[] = []
@@ -34,17 +36,16 @@ export class ChatComponent {
   submitForm(){
     var questionText = this.formGroup.value.question
     this.question = ""
-/*     var textList = this.getResponseAsList("```" + this.java_code + "```")
-    var testChatElement3 = new ChatElement("show some code", textList)
-    this.chatElements.push(testChatElement3) */
-   if(questionText !== undefined && questionText !== ""){
+
+    if(questionText !== undefined && questionText !== ""){
      this.isLoad = true
      this.formGroup.disable()
      var responseText = ""
-     var response = this.chatService.askChatGpt(questionText)
+     var response = this.aiService.askChatGpt(questionText)
      response.subscribe(res =>  {
         if(res !== undefined){
           responseText = res.choices[0].message.content
+          console.log(res)
           var responseTextList = this.getResponseAsList(responseText)
           var newChatElement = new ChatElement(questionText, responseTextList)
           this.chatElements.push(newChatElement)
@@ -58,7 +59,6 @@ export class ChatComponent {
 
      this.formGroup.enable()
    }
-
   }
 
   getResponseAsList(response:string):ResponseItem []{
@@ -120,12 +120,17 @@ export class ChatComponent {
             allText = allText.concat(item.text)
           }
         }
+
         if(allText.length > 500){
           return "1%"
         }
         if(allText.length > 200){
           return "15%"
         }
+        if(allText.length > 100){
+          return "20%"
+        }
+        return "25%"
       }
     }
     return top
@@ -141,7 +146,7 @@ export class ChatComponent {
     this.top = this.setTop()
 
     //for tests
-    this.setTestData()
+    //this.setTestData()
   }
 
   //for tests

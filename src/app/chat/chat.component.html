@@ -18,12 +18,12 @@
     <nz-divider></nz-divider>
   </div>
 
-  <nz-spin [nzSpinning]="isLoad" [nzSize]="'large'" nzTip="I am thinking...">
+  <nz-spin [nzSpinning]="isLoad" [nzSize]="'large'" nzTip="I am thinking ...">
     <div [ngStyle]="{'position':'relative', 'margin-top': top}">
       <nz-affix [nzOffsetBottom]="bottom">
-        <form nz-form [formGroup]="formGroup" (ngSubmit)="submitForm()" class="input-element">
+        <form nz-form [formGroup]="formGroup" (ngSubmit)="submitForm()" class="input-form">
           <nz-input-group nzSearch nzSize="large" [nzAddOnAfter]="suffixButton">
-            <input type="text" nz-input formControlName="question" placeholder="ask me"
+            <input class="input-component" type="text" nz-input formControlName="question" placeholder="ask me"
                    (input)="valueChange($event)"
                    [(ngModel)]="question"/>
 

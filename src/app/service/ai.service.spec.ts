@@ -1,8 +1,8 @@
 import { TestBed } from '@angular/core/testing';
 
-import { ChatService } from './chat.service';
+import { AIService } from './ai.service';
 
-describe('ChatService', () => {
+describe('AIService', () => {
   let service: ChatService;
 
   beforeEach(() => {

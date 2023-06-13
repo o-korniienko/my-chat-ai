@@ -28,10 +28,15 @@
   white-space: pre-line;
 }
 
-.input-element{
+.input-form{
   position:relative;
   width:60%;
   left:20%;
+}
+
+.input-component{
+  border-bottom-left-radius:7px;
+  border-top-left-radius:7px;
 }
 
 .send-btn{

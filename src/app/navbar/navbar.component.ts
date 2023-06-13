@@ -20,7 +20,8 @@ export class NavbarComponent {
   path  = window.location.pathname
   logoUrl = "assets/logo/logo.png"
 
-  buttons:Btn[]=[]
+  buttons:Btn[]= []
+
   ngOnInit(): void {
     this.buttons = BUTTONS
     this.setCheckedBtnColor()
@@ -30,6 +31,8 @@ export class NavbarComponent {
     for(var btn of this.buttons){
       if(btn.link === this.path){
         btn.color = "#a4e1ac"
+      }else{
+        btn.color = "white"
       }
     }
   }

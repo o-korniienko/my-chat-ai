@@ -15,6 +15,7 @@ import { NzTypographyModule } from 'ng-zorro-antd/typography';
 import { NzDividerModule } from 'ng-zorro-antd/divider';
 import { NzSpinModule } from 'ng-zorro-antd/spin';
 import { HighlightModule, HIGHLIGHT_OPTIONS, HighlightOptions} from 'ngx-highlightjs';
+import { NzSelectModule } from 'ng-zorro-antd/select';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -28,6 +29,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { NavbarComponent } from './navbar/navbar.component';
 import { PlayComponent } from './play/play.component';
 import { ChatComponent } from './chat/chat.component';
+import { TranslateComponent } from './translate/translate.component';
 
 
 
@@ -40,6 +42,7 @@ registerLocaleData(uk);
     NavbarComponent,
     PlayComponent,
     ChatComponent,
+    TranslateComponent,
   ],
   imports: [
     BrowserModule,
@@ -60,6 +63,7 @@ registerLocaleData(uk);
     NzDividerModule,
     NzSpinModule,
     HighlightModule,
+    NzSelectModule,
   ],
   providers: [
     { provide: NZ_I18N, useValue: uk_UA},

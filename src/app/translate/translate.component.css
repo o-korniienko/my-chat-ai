@@ -1,0 +1,61 @@
+.translate-section{
+  position:relative;
+  width:80%;
+  left:10%;
+  top:24px;
+  min-height: 550px !important;
+  background-color:#f6f9f7;
+}
+
+.send-btn{
+  position:relative;
+  top:12px;
+  color:white;
+  background-color:black;
+  border-radius:14px;
+}
+
+.send-btn:hover{
+  color:#6c5eca;
+}
+
+.none-resize{
+    resize:none;
+}
+
+.input-form{
+  position:relative;
+  width:80%;
+  left:10%;
+  top:100px;
+}
+
+.translate-space{
+  position:relative;
+  width:100%;
+}
+
+.input-component{
+  position:relative;
+  width:49%;
+  border-radius:7px;
+}
+
+.output-component{
+  position:relative;
+  width:100%;
+  margin-top:20px;
+  border-radius:7px;
+}
+
+.language-select {
+  width:150px;
+  border-radius:7px;
+}
+
+.translated-section{
+   position:relative;
+   left:2%;
+   width:49%;
+}
+
